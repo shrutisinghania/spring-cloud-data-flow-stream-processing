@@ -1,2 +1,24 @@
 // dataflow 1.2.0.RELEASE log opened at 2016-10-20 13:13:20
 // dataflow 1.2.0.RELEASE log opened at 2016-10-24 16:51:17
+// dataflow 1.2.0.RELEASE log opened at 2020-02-16 19:27:21
+app register --name time-source --type source --uri maven://org.baeldung.spring.cloud:spring-data-flow-time-source:jar:0.0.1-SNAPSHOT
+app register --name time-processor --type processor --uri maven://org.baeldung.spring.cloud:spring-data-flow-time-processor:jar:0.0.1-SNAPSHOT
+app register --name logging-sink --type sink --uri maven://org.baeldung.spring.cloud:spring-data-flow-logging-sink:jar:0.0.1-SNAPSHOT
+// [failed] stream create --name time-to-log --definition 'time-source | time-processor | logging-sink'
+exit
+// dataflow 1.2.0.RELEASE log closed at 2020-02-16 19:51:14
+// dataflow 1.2.0.RELEASE log opened at 2020-02-16 19:55:37
+app register --name time-source --type source --uri maven://org.baeldung.spring.cloud:spring-data-flow-time-source:jar:0.0.1-SNAPSHOT
+app register --name time-processor --type processor --uri maven://org.baeldung.spring.cloud:spring-data-flow-time-processor:jar:0.0.1-SNAPSHOT
+app register --name logging-sink --type sink --uri maven://org.baeldung.spring.cloud:spring-data-flow-logging-sink:jar:0.0.1-SNAPSHOT
+stream create --name time-to-log --definition 'time-source | time-processor | logging-sink'
+// [failed] stream deploy --name time-to-log
+// [failed] app register --name time-source --type source --uri maven://org.ilrs:time-source:0.0.1-SNAPSHOT
+exit
+// dataflow 1.2.0.RELEASE log closed at 2020-02-16 20:20:20
+// dataflow 1.2.0.RELEASE log opened at 2020-02-16 20:21:46
+app register --name time-source --type source --uri maven://org.ilrs:time-source:0.0.1-SNAPSHOT
+app register --name time-processor --type processor --uri maven://org.ilrs:time-processor:0.0.1-SNAPSHOT
+app register --name log-sink --type sink --uri maven://org.ilrs:log-sink:0.0.1-SNAPSHOT
+stream create --name time-to-log --definition 'time-source | time-processor | log-sink'
+stream deploy --name time-to-log
