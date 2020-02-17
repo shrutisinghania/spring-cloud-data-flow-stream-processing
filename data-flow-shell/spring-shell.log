@@ -22,3 +22,13 @@ app register --name time-processor --type processor --uri maven://org.ilrs:time-
 app register --name log-sink --type sink --uri maven://org.ilrs:log-sink:0.0.1-SNAPSHOT
 stream create --name time-to-log --definition 'time-source | time-processor | log-sink'
 stream deploy --name time-to-log
+exit
+// dataflow 1.2.0.RELEASE log closed at 2020-02-16 20:40:36
+// dataflow 1.2.0.RELEASE log opened at 2020-02-17 09:47:12
+app register --name time-source --type source --uri maven://org.ilrs:time-source:0.0.1-SNAPSHOT
+app register --name time-processor --type processor --uri maven://org.ilrs:time-processor:0.0.1-SNAPSHOT
+app register --name log-sink --type sink --uri maven://org.ilrs:log-sink:0.0.1-SNAPSHOT
+stream create --name time-to-log --definition 'time-source | time-processor | log-sink'
+stream deploy --name time-to-log
+exit
+// dataflow 1.2.0.RELEASE log closed at 2020-02-17 10:03:05
